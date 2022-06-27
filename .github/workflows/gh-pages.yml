@@ -34,8 +34,9 @@ jobs:
 
     # Next.jsアプリをビルドする
     # プロジェクトルート直下に.nextディレクトリができる
-    - name: build
-      run: npm run build
+    # npm run exportコマンドでnext buildを実行する設定のため、こちらのコマンドは不要
+    # - name: build
+    #   run: npm run build
 
     # 静的なHTMLとしてNext.jsアプリを生成する
     # プロジェクトルート直下にoutディレクトリができる
@@ -47,7 +48,7 @@ jobs:
     # つまりHTMLからJSを読み込めない
     # これを回避するために.nojekyllファイルをoutディレクトリに作る
     - name: add nojekyll
-      run: touch ./out/.nojekyll
+      run: touch ./docs/.nojekyll
 
     # gh-pagesブランチにoutディレクトリの中身をプッシュする
     # gh-pagesブランチは自動的に作成される
@@ -55,4 +56,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out
+        publish_dir: ./docs
