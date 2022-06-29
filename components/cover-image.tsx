@@ -12,11 +12,14 @@ type Props = {
 const CoverImage = ({ title, src, slug }: Props) => {
 
   const basePath = (publicRuntimeConfig && publicRuntimeConfig.basePath) || "";
+  if(basePath){
+    src = basePath + "/" + src;
+  }
 
   const image = (
     <img
-      src={`${basePath}/${src}`}
-      alt={`Cover Image for ${title}`}
+      src={ src }
+      alt={`Cover Image for ${title} and ${basePath}`}
       className={cn('shadow-sm', {
         'hover:shadow-lg transition-shadow duration-200': slug,
       })}
