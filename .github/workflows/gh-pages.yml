@@ -38,6 +38,8 @@ jobs:
     # - name: build
     #   run: npm run build
 
+    - name: inject
+      run: env NODE_ENV='production'
     # 静的なHTMLとしてNext.jsアプリを生成する
     # プロジェクトルート直下にoutディレクトリができる
     # そのなかに、HTMLファイル群と、それらが読み込むJSファイル群を収めた_nextディレクトリがある
