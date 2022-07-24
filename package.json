@@ -4,8 +4,7 @@
         "dev": "next",
         "build": "next build",
         "start": "next start",
-        "export": "next build && next export -o docs",
-        "postexport": "next-sitemap",
+        "export": "next build && next export -o docs && next-sitemap",
         "typecheck": "tsc"
     },
     "dependencies": {
